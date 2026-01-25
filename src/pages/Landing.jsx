@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 function Landing() {
   const navigate = useNavigate();
 
@@ -24,15 +25,15 @@ function Landing() {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
     <div className="landing-page">
+      <Navbar />
       {/* ================= HERO ================= */}
       <section className="flickr-landing">
         <div className="flickr-content">
           {/* Rocket badge animation */}
           <span className="hero-badge animate-badge">
-             AI-powered Retail Intelligence
+            AI-powered Retail Intelligence
           </span>
 
           {/* Typing title */}
@@ -47,9 +48,8 @@ function Landing() {
 
           <p className="flickr-support">
             RetailVision is an AI-driven retail management platform built for
-            businesses. It automates billing, optimizes
-            inventory, and delivers real-time insights to help retailers run
-            smarter, faster operations.
+            businesses. It automates billing, optimizes inventory, and delivers
+            real-time insights to help retailers run smarter, faster operations.
           </p>
 
           <div className="landing-cta">
@@ -119,37 +119,109 @@ function Landing() {
           </div>
         </div>
       </section>
-{/* ================= WHY RETAILVISION ================= */}
-<section className="section alt-section">
-  <h2 className="section-title">Why RetailVision?</h2>
 
-  <div className="why-grid">
-    <div className="why-card">
-      <h3>Built for Indian Retail</h3>
-      <p>
-        Designed specifically for retailers with
-        real-world workflows and practical use cases.
-      </p>
-    </div>
+      {/* ================= PRODUCT SHOWCASE ================= */}
+      <section className="section product-showcase">
+        <div className="showcase-grid">
+          {/* LEFT */}
+          <div className="showcase-left">
+            <h2 className="section-title">
+              How RetailVision Helps Retailers Make Smarter Decisions
+            </h2>
 
-    <div className="why-card">
-      <h3>AI-Driven Insights</h3>
-      <p>
-        Make smarter decisions using AI-powered forecasting and
-        analytics - not guesswork.
-      </p>
-    </div>
+            <p className="showcase-text">
+              RetailVision analyzes your store’s sales and inventory data to
+              highlight slow-moving products and suggest practical actions that
+              improve profitability — without changing your existing workflow.
+            </p>
 
-    <div className="why-card">
-      <h3>Simple, Scalable & Secure</h3>
-      <p>
-        Easy to start, quick to adopt, and scalable as your business
-        grows.
-      </p>
-    </div>
-  </div>
-</section>
+            <ul className="showcase-points">
+              <li>✔ Identifies products that block capital in inventory</li>
+              <li>✔ Suggests smart bundle offers to clear dead stock</li>
+              <li>✔ Helps retailers act faster with data-backed decisions</li>
+            </ul>
 
+            <div className="showcase-stats">
+              <div className="stat-card">
+                <strong>40%</strong>
+                <span>Faster Inventory Movement</span>
+              </div>
+              <div className="stat-card">
+                <strong>18%</strong>
+                <span>Improvement in Monthly Revenue</span>
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT – DASHBOARD PREVIEW */}
+          <div className="showcase-right">
+            <div className="dashboard-card">
+              <h4 className="dashboard-title">
+                RetailVision – Feature Preview
+              </h4>
+
+              <div className="bundle-item">
+                <span>Men’s Cotton Shirt (Blue)</span>
+                <span>48 units · ₹599</span>
+              </div>
+
+              <div className="bundle-plus">+</div>
+
+              <div className="bundle-item">
+                <span>Chino Pants (Navy)</span>
+                <span>32 units · ₹799</span>
+              </div>
+
+              <div className="bundle-result">
+                <strong>Suggested Bundle: ₹899</strong>
+                <span>
+                  Based on sales trends · Estimated clearance: 45 bundles /
+                  month
+                </span>
+              </div>
+
+              <div className="bundle-actions">
+                <button className="approve-btn">Apply in Dashboard</button>
+                <button className="ghost-btn">Review Logic</button>
+              </div>
+              <p className="demo-note">
+                Feature preview shown for demonstration purposes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= WHY RETAILVISION ================= */}
+      <section className="section alt-section">
+        <h2 className="section-title">Why RetailVision?</h2>
+
+        <div className="why-grid">
+          <div className="why-card">
+            <h3>Built for Indian Retail</h3>
+            <p>
+              Designed specifically for retailers with real-world workflows and
+              practical use cases.
+            </p>
+          </div>
+
+          <div className="why-card">
+            <h3>AI-Driven Insights</h3>
+            <p>
+              Make smarter decisions using AI-powered forecasting and analytics
+              - not guesswork.
+            </p>
+          </div>
+
+          <div className="why-card">
+            <h3>Simple, Scalable & Secure</h3>
+            <p>
+              Easy to start, quick to adopt, and scalable as your business
+              grows.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* ================= USERS ================= */}
       <section className="section">
@@ -179,6 +251,13 @@ function Landing() {
               optimize operations.
             </p>
           </div>
+          <div className="info-card">
+            <h3>Business Owners</h3>
+            <p>
+              Track overall performance, profitability, and growth metrics
+              across stores from a single dashboard.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -191,8 +270,8 @@ function Landing() {
             <h3>What We Do</h3>
             <p>
               RetailVision provides an AI-driven retail management platform that
-              helps  businesses automate billing, manage
-              inventory, and gain real-time insights.
+              helps businesses automate billing, manage inventory, and gain
+              real-time insights.
             </p>
           </div>
 
@@ -209,6 +288,13 @@ function Landing() {
             <p>
               Empower retailers with enterprise-level tools to compete
               confidently in a digital-first retail ecosystem.
+            </p>
+          </div>
+          <div className="info-card">
+            <h3>How It Works</h3>
+            <p>
+              RetailVision connects sales and inventory data to generate
+              insights, forecasts, and recommendations — all in real time.
             </p>
           </div>
         </div>

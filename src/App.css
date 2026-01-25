@@ -32,15 +32,21 @@ body {
 /* ================= LANDING PAGE ================= */
 .landing-page {
   min-height: 100vh;
+overflow-x: hidden;
+  overflow-y: visible; 
+
 }
 
 .flickr-landing {
-  min-height: 88vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 24px;
-  padding-top: 48px;
+   min-height: 88vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 24px;
+   padding-top: 48px;
+   position: relative;
+   overflow: hidden;
+   overflow: visible;   /* ✅ FIX */
 }
 
 .flickr-content {
@@ -587,10 +593,6 @@ table tr:last-child td:last-child {
 }
 /* ================= HERO DEPTH ENHANCEMENT ================= */
 .flickr-landing::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
 background:
     linear-gradient(
       to bottom,
@@ -640,7 +642,7 @@ background:
     linear-gradient(
       to bottom,
       rgba(43,176,163,0.14),
-      transparent 35%
+      transparent 45%
     ),
     linear-gradient(
       to top,
@@ -776,9 +778,12 @@ background:
    ====================================================== */
 
 .section {
+  min-height: 200px;
   width: 100%;
   padding: 48px 0;
   text-align: center;
+  overflow-x: hidden;
+  z-index : 2;
 }
 
 .section > * {
@@ -831,14 +836,15 @@ background:
 
 .card-grid {
   margin-top: 48px;
+    grid-template-columns: repeat(4, 1fr);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
   gap: 36px;
 }
 
 .info-card {
   position: relative;
-  background: rgba(255,255,255,0.045);
+  background:  rgba(255, 255, 255, 0.045); 
   backdrop-filter: blur(16px);
   padding: 32px;
   border-radius: 20px;
@@ -892,7 +898,283 @@ background:
   opacity: 0.6;
   pointer-events: none;
 }
+/* ================= PRODUCT SHOWCASE ================= */
 
+.product-showcase {
+  position: relative;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.showcase-text {
+  max-width: 520px;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.showcase-points {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+}
+
+.showcase-points li {
+  margin-bottom: 10px;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.showcase-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 18px 24px;
+  text-align: center;
+  min-width: 160px;
+}
+
+.stat-card strong {
+  font-size: 1.6rem;
+  color: #5eead4;
+  display: block;
+}
+
+.stat-card span {
+  font-size: 0.8rem;
+  color: #cbd5f5;
+}
+/* ======================================================
+   🔥 DARK THEME DEPTH & VARIATION FIX (NO LIGHT THEME)
+   ====================================================== */
+
+/* ---------- Base section rhythm ---------- */
+.section {
+  position: relative;
+  padding: 90px 0;
+}
+
+/* ---------- Alternate section tones ---------- */
+.section:nth-of-type(even) {
+  background:
+    radial-gradient(
+      700px circle at top,
+      rgba(94,234,212,0.06),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.035),
+      rgba(255,255,255,0.01)
+    );
+}
+
+.section:nth-of-type(odd) {
+  background:
+    radial-gradient(
+      600px circle at bottom,
+      rgba(43,176,163,0.05),
+      transparent 65%
+    );
+}
+
+/* ---------- Section separators (visual pause) ---------- */
+.section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(94,234,212,0.35),
+    transparent
+  );
+}
+
+/* ---------- Product showcase = FEATURE MOMENT ---------- */
+.product-showcase {
+  background:
+    radial-gradient(
+      900px circle at center,
+      rgba(46,196,182,0.12),
+      rgba(46,196,182,0.05) 40%,
+      transparent 75%
+    );
+  border-top: 1px solid rgba(94,234,212,0.18);
+  border-bottom: 1px solid rgba(94,234,212,0.18);
+}
+
+/* ---------- Card depth variation ---------- */
+.info-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.025)
+    );
+}
+
+.section:nth-of-type(even) .info-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(94,234,212,0.07),
+      rgba(255,255,255,0.02)
+    );
+}
+
+/* ---------- Cards hover = alive feel ---------- */
+.info-card:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.8),
+    0 0 0 1px rgba(94,234,212,0.25);
+}
+
+/* ---------- Section title anchor ---------- */
+.section-title {
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #2ec4b6,
+    transparent
+  );
+}
+
+/* ---------- Trust cards separation ---------- */
+.hero-trust {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px dashed rgba(94,234,212,0.25);
+}
+
+/* ---------- Mobile safety ---------- */
+@media (max-width: 700px) {
+  .section {
+    padding: 64px 0;
+  }
+}
+
+
+
+/* ================= DASHBOARD PREVIEW ================= */
+
+.dashboard-card {
+  background: linear-gradient(
+    180deg,
+    rgba(15,23,42,0.95),
+    rgba(2,6,23,0.95)
+  );
+  border-radius: 22px;
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+}
+
+.dashboard-title {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 18px;
+}
+
+.bundle-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.bundle-plus {
+  text-align: center;
+  color: #5eead4;
+  font-size: 22px;
+  margin: 6px 0;
+}
+
+.bundle-result {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(46,196,182,0.12);
+  border: 1px solid rgba(46,196,182,0.35);
+}
+
+.bundle-result strong {
+  color: #5eead4;
+  font-size: 1.2rem;
+}
+
+.bundle-result span {
+  display: block;
+  font-size: 0.8rem;
+  color: #cbd5f5;
+}
+
+.bundle-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.approve-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #2ec4b6, #5eead4);
+  color: #020617;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ghost-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #5eead4;
+  color: #5eead4;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .showcase-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+}
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ================= WHY RETAILVISION ================= */
 

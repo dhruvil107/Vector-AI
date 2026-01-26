@@ -1,6 +1,6 @@
-# RetailVision-AI
+# Vector-AI
 
-RetailVision AI is a unified decision support platform bridging the gap between
+Vector AI is a unified decision support platform bridging the gap between
 strategy and execution.
 
 ## Features
@@ -13,6 +13,9 @@ strategy and execution.
 - React
 - JavaScript
 - CSS
+- React
+- MongoDB
+- Tailwind
 
 ## Setup
 ```bash
